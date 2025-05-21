@@ -1,42 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="manifest" href="manifest.json" />
-  <title>CITISEA App</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    input, button { padding: 10px; margin: 5px; width: 100%; }
-  </style>
-</head>
-<body>
-  <h2>Form Pendaftaran CITISEA</h2>
-  <input id="name" type="text" placeholder="Nama Lengkap" />
-  <input id="email" type="email" placeholder="Email" />
-  <button onclick="submitForm()">Kirim</button>
-  <p id="status"></p>
+<script>
+  function submitForm() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const status = document.getElementById("status");
 
-  <script>
-    function submitForm() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const status = document.getElementById("status");
-      
-      fetch('https://script.google.com/macros/s/AKfycbwaEp5mC8uu8du5uMiirkAKLF-vsg1GguGKeiK3uT7PF73oWP43zsCttFJ4jdXuILzu/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email })
-      });
+    fetch('https://script.google.com/macros/s/AKfycbwaEp5mC8uu8du5uMiirkAKLF-vsg1GguGKeiK3uT7PF73oWP43zsCttFJ4jdXuILzu/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
 
-      status.innerText = "Data terkirim!";
-    }
+    status.innerText = "Data terkirim!";
+  }
 
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
-</body>
-</html>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
