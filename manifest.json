@@ -7,7 +7,7 @@
   "description": "Aplikasi Komunitas CITISEA",
   "icons": [
     {
-      "src": "CITISEA.png",
+      "src": "icon.png",
       "sizes": "192x192",
       "type": "image/png"
     }
